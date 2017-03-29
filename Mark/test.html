@@ -4,34 +4,55 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>키워드로 장소검색하고 목록으로 표출하기</title>
-  <style>
-  html, body{width:100%; height: 100%; margin:0; padding:0}
-  .map_wrap, .map_wrap * {margin:0;padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
-  .map_wrap a, .map_wrap a:hover, .map_wrap a:active{color:#000;text-decoration: none;}
-  .map_wrap {position:relative;width:100%;height:100%;}
-  #menu_wrap {position:absolute;top:0;left:0;bottom:0;width:300px;height:50px;margin:10px 0 30px 10px;padding:5px;overflow-y:auto;background:rgba(255, 255, 255, 0.7);z-index: 1;font-size:12px;border-radius: 10px;}
-  .bg_white {background:#fff;}
-  #menu_wrap hr {display: block; height: 1px;border: 0; border-top: 2px solid #5F5F5F;margin:3px 0;}
-  #menu_wrap .option{text-align: center;}
-  #menu_wrap .option p {margin:10px 0;}
-  #menu_wrap .option button {margin-left:5px;}
-</style>
-  <link rel="stylesheet" media="screen" href="main_css.css">
+  <link rel="stylesheet" type="text/css" href="main_css.css">
+  <link rel="stylesheet" type="text/css" href="main_css2.css">
+  <style media="screen">
+  #menu_hide {display: none; position: absolute;top:80px;width:300px;height:500px;margin-left:10px;overflow-y:auto;background:rgba(255,255,255,1.7);z-index: 1;font-size: 12px;border-radius: 0px 0px 10px 10px;}
+
+
+  </style>
 </head>
 <body>
+<div class="info_window">
+  <div id="info" style="width:320px;height:100%;position:absolute;overflow:hidden;background:blue;">
+    what's going on?
+  </div>
+
+</div>
 <div class="map_wrap">
-    <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
+    <div id="map" style="width:100%;height:100%;position:absolute;overflow:hidden;"></div>
+
+    <!--좌측 상위 검색 메뉴 div 입니다 -->
+    <div id="search_wrap" class="bg_white">
+      <div class="search_option">
+          <div>
+              <form onsubmit="searchPlaces(); return false;">
+                  키워드 : <input type="text" value="호갱노노짭" id="keyword" size="15">
+                  <button type="submit">검색하기</button>
+              </form>
+          </div>
+      </div>
+    </div>
 
     <div id="menu_wrap" class="bg_white">
-        <div class="option">
-            <div>
-                <form onsubmit="searchPlaces(); return false;">
-                    키워드 : <input type="text" value="호갱노노짭" id="keyword" size="15">
-                    <button type="submit">검색하기</button>
-                </form>
-            </div>
+      <div class="menu_option">
+        <div>
+          <button id="menu1" type="button" name="button" onclick="menuButtonEvent()">메뉴1</button>
+          <button id="menu2" type="button" name="button" onclick="menuButtonEvent()">메뉴2</button>
+          <button id="menu3" type="button" name="button" onclick="menuButtonEvent()">MENU3</button>
+          <button id="menu4" type="button" name="button" onclick="menuButtonEvent()">MENU4</button>
         </div>
+      </div>
     </div>
+
+    <div id="menu_hide" class="bg_white">
+      <div class="menu_info">
+        <div>
+          info1 <hr> info2 <hr> info3 <hr> info4 <hr>
+        </div>
+      </div>
+    </div>
+
     <!-- 지도타입 컨트롤 div 입니다 -->
     <div class="custom_typecontrol radius_border">
         <span id="btnRoadmap" class="selected_btn" onclick="setMapType('roadmap')">지도</span>
@@ -46,5 +67,11 @@
 
 <script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=15f14e8ea6ccdce536900236805f090e&libraries=services"></script>
 <script src="main_jsp.js"> </script>
+<script type="text/javascript">
+  function menuButtonEvent(){
+    document.getElementById("menu_hide").style.display="block";
+  }
+
+</script>
 </body>
 </html>
