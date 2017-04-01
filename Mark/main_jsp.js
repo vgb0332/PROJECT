@@ -5,8 +5,6 @@ var mapContainer = document.getElementById('map'), // 지도를 표시할 div
     };
 
 var map = new daum.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
-
-// 지도타입 컨트롤의 지도 또는 스카이뷰 버튼을 클릭하면 호출되어 지도타입을 바꾸는 함수입니다
 function setMapType(maptype) {
     var roadmapControl = document.getElementById('btnRoadmap');
     var skyviewControl = document.getElementById('btnSkyview');
