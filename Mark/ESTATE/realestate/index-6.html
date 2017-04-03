@@ -21,11 +21,9 @@
         <link href="assets/plugins/animate/animate.min.css" rel="stylesheet">
         <link href="assets/plugins/swiper/css/swiper.min.css" rel="stylesheet">
         <link href="assets/plugins/datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
-        <link href="assets/plugins/datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
 
         <!-- Theme CSS -->
         <link href="assets/css/theme.css" rel="stylesheet">
-        <link href="assets/css/old_css.css" rel="stylesheet"> <!--old version css for Mark-->
 
         <!-- Head Libs -->
         <script src="assets/plugins/modernizr.custom.js"></script>
@@ -218,17 +216,18 @@
                             <div class="container">
 
                                 <hr class="page-divider small transparent"/>
+
                                 <h3 class="block-title alt2"><i class="fa fa-angle-down"></i> NOW IT'S EASY TO FIND YOUR FUTURE Property </h3>
 
                                 <!-- Search form -->
                                 <div class="form-search light">
-                                    <form action="#">
+                                    <form onsubmit="searchPlaces(); return false;">
 
                                         <div class="row row-inputs">
                                             <div class="col-sm-12 col-md-6">
                                                 <div class="form-group has-icon has-label">
-                                                    <label for="formSearchUpLocation2">Enter Location</label>
-                                                    <input type="text" class="form-control" id="formSearchUpLocation2" placeholder="City">
+                                                    <label for="formSearchUpLocation2">주소 검색</label>
+                                                    <input type="text" class="form-control" id="formSearchUpLocation2" placeholder="주소를 검색하세요">
                                                     <span class="form-control-icon"><i class="fa fa-map-marker"></i></span>
                                                 </div>
                                             </div>
@@ -291,7 +290,7 @@
                                             <div class="container-fluid">
                                                 <div class="inner">
                                                     <i class="fa fa-plus-circle"></i> <a href="#">Advanced Search</a>
-                                                    <button type="submit" id="formSearchSubmit2" class="btn btn-submit btn-theme pull-right">Search</button>
+                                                    <button type="submit" id="formSearchSubmit2" class="btn btn-submit btn-theme pull-right">검색</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -443,10 +442,12 @@
         <script src="assets/plugins/datetimepicker/js/moment-with-locales.min.js"></script>
         <script src="assets/plugins/datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
 
+        <script src="http://apis.daum.net/maps/maps3.js?apikey=15f14e8ea6ccdce536900236805f090e&libraries=services,clusterer"></script>
         <!-- JS Page Level -->
         <script src="assets/js/theme.js"></script>
+        <script src="assets/js/search_places.js"></script>
         <!--<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script> -->
-        <script src="http://apis.daum.net/maps/maps3.js?apikey=15f14e8ea6ccdce536900236805f090e&libraries=services,clusterer"></script>
+
 
     </body>
 </html>
