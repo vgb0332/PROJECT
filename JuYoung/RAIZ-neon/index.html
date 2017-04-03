@@ -24,6 +24,7 @@
 
         <!-- Theme CSS -->
         <link href="assets/css/theme.css" rel="stylesheet">
+        <link href="assets/css/old_css.css" rel="stylesheet"> <!--old version css for Mark-->
 
         <!-- Head Libs -->
         <script src="assets/plugins/modernizr.custom.js"></script>
@@ -50,6 +51,17 @@
         <!-- Google map -->
         <div class="google-map">
             <div class="map-canvas" id="map-canvas-fs"></div>
+        </div>
+
+        <!-- 지도타입 컨트롤 div 입니다 -->
+        <div class="custom_typecontrol radius_border">
+            <span id="btnRoadmap" class="selected_btn" onclick="setMapType('roadmap')">지도</span>
+            <span id="btnSkyview" class="selected_btn2" onclick="setMapType('skyview')">스카이뷰</span>
+        </div>
+        <!-- 지도 확대, 축소 컨트롤 div 입니다 -->
+        <div class="custom_zoomcontrol radius_border">
+            <span onclick="zoomIn()"><img src="http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_plus.png" alt="확대"></span>
+            <span onclick="zoomOut()"><img src="http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_minus.png" alt="축소"></span>
         </div>
         <!-- /Google map -->
 
@@ -171,7 +183,7 @@
                                             <div class="col-sm-12 col-md-6">
                                                 <div class="form-group has-icon has-label">
                                                     <label for="formSearchUpLocation2">장소명을 검색하세요</label>
-                                                    <input type="text" class="form-control" id="formSearchUpLocation2" placeholder="City">
+                                                    <input type="text" class="form-control" id="formSearchUpLocation2" placeholder="검색해주세요...">
                                                     <span class="form-control-icon"><i class="fa fa-map-marker"></i></span>
                                                 </div>
                                             </div>
@@ -395,7 +407,8 @@
 
         <!-- JS Page Level -->
         <script src="assets/js/theme.js"></script>
-        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
+        <!--<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>-->
+        <script src="http://apis.daum.net/maps/maps3.js?apikey=15f14e8ea6ccdce536900236805f090e&libraries=services,clusterer"></script>
 
     </body>
 </html>
