@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>키워드로 장소검색하고 목록으로 표출하기</title>
+  <link rel="stylesheet" type="text/css" href="main_css.css">
+  <link rel="stylesheet" type="text/css" href="main_css2.css">
+  <style media="screen">
+
+  </style>
+</head>
+<body>
+<div class="info_window">
+  <div id="info" style="display:none;width:10%;height:100%;position:absolute;overflow:hidden;background:white;">
+
+  </div>
+
+</div>
+
+<div id="info_block"></div>
+<div class="map_wrap">
+    <div id="map" style="left:0%; width:100%;height:100%;position:relative;overflow:hidden;"></div>
+
+
+
+
+    <!--좌측 상위 검색 메뉴 div 입니다 -->
+    <div id="search_wrap">
+      <div class="search_option">
+        <div style="position: absolute; margin-top: 10px;"></div>
+          <div>
+              <form onsubmit="searchPlaces(); return false;" style = "font-size: 10px; margin-left: 10px; margin-top: 10px;">
+                  <button type="submit" style = "width : 24px; height : 24px; font-size : 5px; margin-top : 5px; border : 0; background-image:url('./img/home_btn.png');"></button> <input type="text" size="53" style = "height : 40px;">
+                  <button type="submit" style = "width : 24px; height : 24px; font-size : 5px; margin-top : 5px; border : 0; background-image:url('./img/search_btn.png')" ></button>
+              </form>
+          </div>
+      </div>
+    </div>
+/*****************************************************************************/
+    <div id="menu_wrap">
+      <div class="menu_option">
+        <div style="position: absolute; margin-top: 0;"></div>
+        <div>
+          <form onclick = "menuButtonEvent()">
+            <button id="menu1" type="button" name="button" style="width:84px; height:36px; border :0; background-image:url('./img/menu_btn.png');"></button>
+          </form><form onclick = "menuButton2Event()">
+            <button id="menu2" type="button" name="button" style="width:84px; height:36px; border :0; background-image:url('./img/menu_btn.png');"></button>
+          </form><form onclick = "menuButton3Event()">
+            <button id="menu3" type="button" name="button" style="width:84px; height:36px; border :0; background-image:url('./img/menu_btn.png');"></button>
+          </form>
+          <button id="menu1" type="button" name="button" onclick= "infoButtonEvent()" style="width:84px; height:36px; border:0; background-image:url('./img/menu_btn2.png');"></button>
+        </div>
+      </div>
+    </div>
+/*****************************************************************************/
+    <div id="menu_hide" class="bg_white" style="display:none">
+      <div class="menu_info2">
+        <div style="display:inline-block;">
+          <ul>
+          <li><button id="menu1" type="button" name="button" style="width:84px; height:36px; border:1; background-color: white;">매매</button></li>
+          <li><button id="menu1" type="button" name="button" style="width:84px; height:36px; border:1; background-color: white;">전세</button></li>
+          <li><button id="menu1" type="button" name="button"style="width:84px; height:36px; border:1; background-color: white;">월세,etc...</button></li>
+        </ul>
+        </div>
+      </div>
+    </div>
+
+    <div id="menu_hide2" class="bg_white" style="display:none">
+      <div class="menu_info3">
+        <div style="display:inline-block;">
+          <ul>
+          <li><button id="menu1" type="button" name="button" style="width:84px; height:36px; border:1; background-color: white;">10평대</button></li>
+          <li><button id="menu1" type="button" name="button" style="width:84px; height:36px; border:1; background-color: white;">20평대</button></li>
+          <li><button id="menu1" type="button" name="button"style="width:84px; height:36px; border:1; background-color: white;">30평대...</button></li>
+        </ul>
+        </div>
+      </div>
+    </div>
+
+    <div id="menu_hide3" class="bg_white" style="display:none">
+      <div class="menu_info">
+        <div style="display:inline-block;">
+          <ul>
+          <li><button id="menu1" type="button" name="button" style="width:84px; height:36px; border:1; background-color: white;">5천미만</button></li>
+          <li><button id="menu1" type="button" name="button" style="width:84px; height:36px; border:1; background-color: white;">1억미만</button></li>
+          <li><button id="menu1" type="button" name="button"style="width:84px; height:36px; border:1; background-color: white;">2억미만</button></li>
+        </ul>
+        </div>
+      </div>
+    </div>
+/*****************************************************************************/
+    <!-- 지도타입 컨트롤 div 입니다 -->
+    <div class="custom_typecontrol radius_border">
+        <span id="btnRoadmap" class="selected_btn" onclick="setMapType('roadmap')">지도</span>
+        <span id="btnSkyview" class="btn" onclick="setMapType('skyview')">스카이뷰</span>
+    </div>
+    <!-- 지도 확대, 축소 컨트롤 div 입니다 -->
+    <div class="custom_zoomcontrol radius_border">
+        <span onclick="zoomIn()"><img src="http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_plus.png" alt="확대"></span>
+        <span onclick="zoomOut()"><img src="http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_minus.png" alt="축소"></span>
+    </div>
+</div>
+/*****************************************************************************/
+
+</div>
+<script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=15f14e8ea6ccdce536900236805f090e&libraries=services"></script>
+<script src="main_jsp.js"> </script>
+<script type="text/javascript">
+  function menuButtonEvent(){
+    if(document.getElementById("menu_hide").style.display==="none") document.getElementById("menu_hide").style.display="block";
+    else document.getElementById("menu_hide").style.display="none";
+  }
+
+  function menuButton2Event(){
+    if(document.getElementById("menu_hide2").style.display==="none") document.getElementById("menu_hide2").style.display="block";
+    else document.getElementById("menu_hide2").style.display="none";
+  }
+
+  function menuButton3Event(){
+    if(document.getElementById("menu_hide3").style.display==="none") document.getElementById("menu_hide3").style.display="block";
+    else document.getElementById("menu_hide3").style.display="none";
+  }
+
+  function infoButtonEvent(){
+    if(document.getElementById("info").style.display === "none") {
+      document.getElementById("info").style.display = "block";
+      document.getElementById("map").style.left = "25.5%";
+    }
+    else{
+      document.getElementById("map").style.left = "0%";
+      document.getElementById("info").style.display = "none";
+    }
+  }
+
+</script>
+</body>
+</html>
