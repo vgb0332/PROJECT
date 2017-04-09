@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>RAIZ</title>
+
+        <!-- Favicon -->
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+        <link rel="shortcut icon" href="assets/ico/favicon.ico">
+
+        <!-- CSS Global -->
+        <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="assets/plugins/bootstrap-select/css/bootstrap-select.min.css" rel="stylesheet">
+        <link href="assets/plugins/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+        <link href="assets/plugins/prettyphoto/css/prettyPhoto.css" rel="stylesheet">
+        <link href="assets/plugins/owl-carousel2/assets/owl.carousel.min.css" rel="stylesheet">
+        <link href="assets/plugins/owl-carousel2/assets/owl.theme.default.min.css" rel="stylesheet">
+        <link href="assets/plugins/animate/animate.min.css" rel="stylesheet">
+        <link href="assets/plugins/swiper/css/swiper.min.css" rel="stylesheet">
+        <link href="assets/plugins/datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+
+        <!-- Theme CSS -->
+        <link href="assets/css/theme.css" rel="stylesheet">
+        <link href="assets/css/old_css.css" rel="stylesheet"> <!--old version css for Mark-->
+
+        <!-- Head Libs -->
+        <script src="assets/plugins/modernizr.custom.js"></script>
+
+        <!--[if lt IE 9]>
+        <script src="assets/plugins/iesupport/html5shiv.js"></script>
+        <script src="assets/plugins/iesupport/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body id="home" class="wide full-screen-map">
+        <!-- PRELOADER -->
+        <div id="preloader">
+            <div id="loading-center">
+                <div id="loading-center-absolute">
+                    <div class="loader-logo"> <img src="assets/img/loader-logo.png" alt=""> </div>
+                    <div class="object" id="first_object"> </div>
+                    <div class="object" id="second_object"></div>
+                    <div class="object" id="third_object"></div>
+                </div>
+            </div>
+        </div>
+        <!-- /PRELOADER -->
+
+        <!-- Google map -->
+        <div class="google-map">
+            <div class="map-canvas" id="map-canvas-fs"></div>
+        </div>
+
+        <!-- 지도타입 컨트롤 div 입니다 -->
+        <div class="custom_typecontrol radius_border">
+            <span id="btnRoadmap" class="selected_btn" onclick="setMapType('roadmap')">지도</span>
+            <span id="btnSkyview" class="selected_btn2" onclick="setMapType('skyview')">스카이뷰</span>
+        </div>
+        <!-- 지도 확대, 축소 컨트롤 div 입니다 -->
+        <div class="custom_zoomcontrol radius_border">
+            <span onclick="zoomIn()"><img src="http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_plus.png" alt="확대"></span>
+            <span onclick="zoomOut()"><img src="http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_minus.png" alt="축소"></span>
+        </div>
+        <!-- 지도 지형 타입 컨트롤 div 입니다-->
+        <div class="custom_map_type_control radius_border">
+            <input type="checkbox" id="chkUseDistrict" onclick="setOverlayMapTypeId()"/>지적
+            <input type="checkbox" id="chkTerrain" onclick="setOverlayMapTypeId()"/>지형
+            <input type="checkbox" id="chkTraffic" onclick="setOverlayMapTypeId()"/>교통
+            <input type="checkbox" id="chkBicycle" onclick="setOverlayMapTypeId()"/>자전거
+        </div>
+        <!-- /Google map -->
+
+        <!-- WRAPPER -->
+        <div class="wrapper opened">
+
+            <!-- HEADER -->
+            <header class="header fixed">
+                <div class="header-wrapper">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-6 col-xs-6">
+                                <!-- Logo -->
+                                <div class="logo">
+                                    <a href="index.html"><img src="./assets/img/logo-reestate.png" alt="RAIZ"/></a>
+                                </div>
+                                <!-- /Logo -->
+
+                            </div>
+
+                            <div class="col-sm-6 col-xs-6 sign-reg-wrap">
+                                <div class="right-menu text-right">
+                                    <ul class="sign-in-menu">
+                                        <li class="sign-in"><a href="#"><i class="fa fa-user"></i><span class="text">로그인</span></a></li>
+                                        <li class="register active"><a href="#"><i class="fa fa-sign-in"></i><span class="text">가입</span></a></li>
+                                    </ul>
+
+                                    <!-- Mobile menu toggle button -->
+                                    <a href="#" class="menu-toggle btn btn-theme-transparent"><i class="fa fa-bars"></i></a>
+                                    <!-- /Mobile menu toggle button -->
+
+                                    <!-- Navigation -->
+                                    <nav class="navigation closed clearfix">
+                                        <div class="swiper-wrapper">
+                                            <div class="swiper-slide">
+                                                <!-- navigation menu -->
+                                                <a href="#" class="menu-toggle-close btn"><i class="fa fa-times"></i></a>
+                                                <ul class="nav sf-menu">
+                                                    <li class="active"><a href="index.html">Home</a>
+                                                    </li>
+                                                    <li><a href="">FAQ</a></li>
+                                                    <li class="megamenu sale"><a href="#">Features</a>
+                                                        <ul>
+                                                            <li class="row">
+                                                                <div class="col-md-3">
+                                                                    <h4 class="block-title"><span>RAIZ</span></h4>
+                                                                    <p>저희 전문 부동산 중개팀 RAIZ는 공공데이터를 바탕으로 투명한 정보 제공에 힘쓰고 있습니다.</p>
+                                                                    <p>저희 개발팀 R-Stay는 사용자친화적인 UI 제공에 힘쓰고 있습니다.</p>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <h4 class="block-title"><span>LINK</span></h4>
+                                                                    <ul>
+                                                                        <li><a href="http://13.113.113.184">RAIZ BETA</a></li>
+                                                                    </ul>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <h4 class="block-title"><span>Pages</span></h4>
+                                                                    <ul>
+                                                                        <li><a href="">INFO</a></li>
+                                                                        <li><a href="">LOGIN</a></li>
+                                                                    </ul>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    <li><a href="contact.html">Contact</a></li>
+                                                    <li>
+                                                        <ul class="social-icons" style="display: inline-block;">
+                                                            <p><a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+                                                            <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+                                                            <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+                                                            <a href="#" class="pinterest"><i class="fa fa-pinterest"></i></a></p>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                                <!-- /navigation menu -->
+                                            </div>
+                                        </div>
+                                        <!-- Add Scroll Bar -->
+                                        <div class="swiper-scrollbar"></div>
+                                    </nav>
+                                    <!-- /Navigation -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </header>
+            <!-- /HEADER -->
+
+            <!-- CONTENT AREA -->
+            <div class="content-area scroll">
+
+                <div class="open-close-area" id="open-close-area"><a href="#"><i class="fa fa-angle-left"></i></a></div>
+
+                <!-- <div class="helping-center-line">
+                    <div class="container">
+                        <h4>Helping Center</h4>
+                        <span>+90 555 444 66 33</span>
+                        <a href="#" class="btn btn-theme btn-theme-dark"> Buy Now </a>
+                    </div>
+                </div> --><!-- 필요치 않은 기능 -->
+
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+
+                        <!-- PAGE -->
+                        <section class="page-section">
+                            <div class="container">
+
+                                <hr class="page-divider small transparent"/>
+                                <h3 class="block-title alt2"><i class="fa fa-angle-down"></i> 필터 검색기능은 아직 구현되지 않았습니다. </h3>
+
+                                <!-- Search form -->
+                                <div class="form-search light">
+                                    <form onsubmit="searchPlaces(); return false;">
+
+                                        <div class="row row-inputs">
+                                            <div class="col-sm-12 col-md-6">
+                                                <div class="form-group has-icon has-label">
+                                                    <label for="formSearchUpLocation">장소명을 검색하세요</label>
+                                                    <input type="text" class="form-control" id="formSearchUpLocation" placeholder="검색해주세요...">
+                                                    <span class="form-control-icon"><i class="fa fa-map-marker"></i></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12 col-md-6">
+                                                <div class="form-group has-icon has-label">
+                                                    <label></label>
+                                                    <select class="selectpicker input-price" data-live-search="true" data-width="100%"
+                                                            data-toggle="tooltip" title="Select">
+                                                        <option>구분</option>
+                                                        <option>매매</option>
+                                                        <option>전세</option>
+                                                        <option>월세</option>
+                                                    </select>
+                                                    <span class="form-control-icon"><i class="fa  fa-caret-down"></i></span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row row-inputs">
+                                            <div class="col-sm-12 col-md-4">
+                                                <div class="form-group has-icon has-label">
+                                                    <label>종목</label>
+                                                    <select
+                                                        class="selectpicker" data-live-search="true" data-width="100%"
+                                                        data-toggle="tooltip" title="Select">
+                                                        <option> 주택 </option>
+                                                        <option> 오피스 </option>
+                                                        <option> 토지 </option>
+                                                    </select>
+                                                    <span class="form-control-icon"><i class="fa  fa-caret-down"></i></span>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-12 col-md-4">
+                                                <div class="form-group has-icon has-label">
+                                                    <label>선호항목</label>
+                                                    <select class="selectpicker" data-live-search="true" data-width="100%"
+                                                            data-toggle="tooltip" title="Select">
+                                                        <option>난방</option>
+                                                        <option>지하철</option>
+                                                        <option>주차공간</option>
+                                                    </select>
+                                                    <span class="form-control-icon"><i class="fa  fa-caret-down"></i></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12 col-md-4">
+                                                <div class="form-group has-icon has-label">
+                                                    <label>가격</label>
+                                                    <select class="selectpicker" data-live-search="true" data-width="100%"
+                                                            data-toggle="tooltip" title="Select">
+                                                        <option> 5천미만</option>
+                                                        <option> 1억미만</option>
+                                                        <option> 2억미만</option>
+                                                        <option> 3억미만</option>
+                                                        <option> 4억미만</option>
+                                                        <option> 5억미만</option>
+                                                        <option> 6억미만</option>
+                                                        <option> 7억미만</option>
+                                                        <option> 8억미만</option>
+                                                        <option> 9억미만</option>
+                                                        <option> 10억미만</option>
+                                                        <option> 10억이상</option>
+                                                    </select>
+                                                    <span class="form-control-icon"><i class="fa  fa-caret-down"></i></span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row row-submit">
+                                            <div class="container-fluid">
+                                                <div class="inner">
+                                                    <i class="fa fa-plus-circle"></i> <a href="#">상세검색</a>
+                                                    <button type="submit" id="formSearchSubmit2" class="btn btn-submit btn-theme pull-right">검색</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <!-- /Search form -->
+
+                                <hr class="page-divider half transparent"/>
+
+                                <h3 class="block-title alt2"><i class="fa fa-angle-down"></i><!----></h3>
+
+                                <div class="row">
+
+                                    <div class="col-md-6">
+                                        <div class="thumbnail no-border no-padding thumbnail-property-card">
+                                            <div class="media">
+                                                <a class="media-link" data-gal="prettyPhoto" href="assets/img/preview/property/recently-1200x800x1.jpg">
+                                                    <img src="assets/img/preview/property/recently-370x220x1.jpg" alt=""/>
+                                                    <span class="icon-view"><strong><i class="fa fa-arrows-alt"></i></strong></span>
+                                                </a>
+                                            </div>
+                                            <div class="caption text-center">
+                                                <h4 class="caption-title"><a href="#">매물이름 0</a></h4>
+                                                <div class="caption-text">위치정보:강남구 삼성동 45-1</div>
+                                                <div class="buttons">
+                                                    <a class="btn btn-theme ripple-effect" href=".\print.html">보러가기</a>
+                                                </div>
+                                                <table class="table">
+                                                    <tr>
+                                                        <td><i class="fa fa-expand"></i> 평형</td>
+                                                        <td><i class="fa fa-bed"></i> 침실</td>
+                                                        <td><i class="fa fa-tint"></i> 화장실</td>
+                                                        <td><i class="fa fa-money"></i> 가격</td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="thumbnail no-border no-padding thumbnail-property-card">
+                                            <div class="media">
+                                                <a class="media-link" data-gal="prettyPhoto" href="assets/img/preview/property/recently-1200x800x2.jpg">
+                                                    <img src="assets/img/preview/property/recently-370x220x2.jpg" alt=""/>
+                                                    <span class="icon-view"><strong><i class="fa fa-arrows-alt"></i></strong></span>
+                                                </a>
+                                            </div>
+                                            <div class="caption text-center">
+                                                <h4 class="caption-title"><a href="#">매물이름 1</a></h4>
+                                                <div class="caption-text">위치정보:강남구 삼성동 45-3</div>
+                                                <div class="buttons">
+                                                    <a class="btn btn-theme ripple-effect" href=".\print.html">보러가기</a>
+                                                </div>
+                                                <table class="table">
+                                                    <tr>
+                                                        <td><i class="fa fa-expand"></i> 평형</td>
+                                                        <td><i class="fa fa-bed"></i> 침실</td>
+                                                        <td><i class="fa fa-tint"></i> 화장실</td>
+                                                        <td><i class="fa fa-money"></i> 가격</td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="thumbnail no-border no-padding thumbnail-property-card">
+                                            <div class="media">
+                                                <a class="media-link" data-gal="prettyPhoto" href="assets/img/preview/property/recently-1200x800x2.jpg">
+                                                    <img src="assets/img/preview/property/recently-370x220x2.jpg" alt=""/>
+                                                    <span class="icon-view"><strong><i class="fa fa-arrows-alt"></i></strong></span>
+                                                </a>
+                                            </div>
+                                            <div class="caption text-center">
+                                                <h4 class="caption-title"><a href="#">매물이름 2</a></h4>
+                                                <div class="caption-text">위치정보:강남구 삼성동 46</div>
+                                                <div class="buttons">
+                                                    <a class="btn btn-theme ripple-effect" href=".\print.html">보러가기</a>
+                                                </div>
+                                                <table class="table">
+                                                    <tr>
+                                                        <td><i class="fa fa-expand"></i> 평형</td>
+                                                        <td><i class="fa fa-bed"></i> 침실</td>
+                                                        <td><i class="fa fa-tint"></i> 화장실</td>
+                                                        <td><i class="fa fa-money"></i> 가격</td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="thumbnail no-border no-padding thumbnail-property-card">
+                                            <div class="media">
+                                                <a class="media-link" data-gal="prettyPhoto" href="assets/img/preview/property/recently-1200x800x2.jpg">
+                                                    <img src="assets/img/preview/property/recently-370x220x2.jpg" alt=""/>
+                                                    <span class="icon-view"><strong><i class="fa fa-arrows-alt"></i></strong></span>
+                                                </a>
+                                            </div>
+                                            <div class="caption text-center">
+                                                <h4 class="caption-title"><a href="#">매물이름 3</a></h4>
+                                                <div class="caption-text">위치정보:강남구 삼성동 46-1</div>
+                                                <div class="buttons">
+                                                    <a class="btn btn-theme ripple-effect" href=".\print.html">보러가기</a>
+                                                </div>
+                                                <table class="table">
+                                                    <tr>
+                                                        <td><i class="fa fa-expand"></i> 평형</td>
+                                                        <td><i class="fa fa-bed"></i> 침실</td>
+                                                        <td><i class="fa fa-tint"></i> 화장실</td>
+                                                        <td><i class="fa fa-money"></i> 가격</td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </section>
+                        <!-- /PAGE -->
+
+                    </div>
+                </div>
+                <!-- Add Scroll Bar -->
+                <div class="swiper-scrollbar"></div>
+
+            </div>
+            <!-- /CONTENT AREA -->
+
+            <div id="to-top" class="to-top"><i class="fa fa-angle-up"></i></div>
+
+        </div>
+        <!-- /WRAPPER -->
+
+        <!-- JS Global -->
+        <script src="assets/plugins/jquery/jquery-1.11.1.min.js"></script>
+        <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+        <script src="assets/plugins/bootstrap-select/js/bootstrap-select.min.js"></script>
+        <script src="assets/plugins/superfish/js/superfish.min.js"></script>
+        <script src="assets/plugins/prettyphoto/js/jquery.prettyPhoto.js"></script>
+        <script src="assets/plugins/owl-carousel2/owl.carousel.min.js"></script>
+        <script src="assets/plugins/jquery.sticky.min.js"></script>
+        <script src="assets/plugins/jquery.easing.min.js"></script>
+        <script src="assets/plugins/jquery.smoothscroll.min.js"></script>
+        <!--<script src="assets/plugins/smooth-scrollbar.min.js"></script>-->
+        <script src="assets/plugins/swiper/js/swiper.jquery.min.js"></script>
+        <script src="assets/plugins/datetimepicker/js/moment-with-locales.min.js"></script>
+        <script src="assets/plugins/datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+
+        <script src="http://apis.daum.net/maps/maps3.js?apikey=15f14e8ea6ccdce536900236805f090e&libraries=services,clusterer"></script>
+        <!-- JS Page Level -->
+        <script src="assets/js/theme.js"></script>
+        <script src="assets/js/search_places.js"></script>
+        <!--<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script> -->
+
+    </body>
+</html>
