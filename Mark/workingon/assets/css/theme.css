@@ -114,17 +114,17 @@
 #second_object{
     -webkit-animation: second_object 1s forwards, second_object_animate 1s infinite ease-in-out;
     animation: second_object 1s forwards, second_object_animate 1s infinite ease-in-out;
-}	
+}
 #third_object{
     -webkit-animation: third_object 1s forwards, third_object_animate 1s infinite ease-in-out;
     animation: third_object 1s forwards, third_object_animate 1s infinite ease-in-out;
-}	
+}
 
 
 
 @-webkit-keyframes second_object {
     100% { width: 100px; height:100px; left: 48px; top: 48px; }
-}		
+}
 @keyframes second_object {
     100% { width: 100px; height:100px; left: 48px; top: 48px; }
 }
@@ -132,7 +132,7 @@
 
 @-webkit-keyframes third_object {
     100% { width: 150px; height:150px; left: 23px; top: 23px;}
-}		
+}
 @keyframes third_object {
     100% { width: 150px; height:150px; left: 23px; top: 23px;}
 }
@@ -149,13 +149,13 @@
 }
 
 @keyframes first_object_animate {
-    0% { 
+    0% {
         transform: perspective(100px) rotateX(0deg) rotateY(0deg);
-        -webkit-transform: perspective(100px) rotateX(0deg) rotateY(0deg); 
-    } 50% { 
+        -webkit-transform: perspective(100px) rotateX(0deg) rotateY(0deg);
+    } 50% {
         transform: perspective(100px) rotateX(-180deg) rotateY(0deg);
         -webkit-transform: perspective(100px) rotateX(-180deg) rotateY(0deg) ;
-    } 100% { 
+    } 100% {
         transform: perspective(100px) rotateX(-180deg) rotateY(-180deg);
         -webkit-transform: perspective(100px) rotateX(-180deg) rotateY(-180deg);
     }
@@ -167,17 +167,17 @@
     0% { -webkit-transform: perspective(200px); }
     50% { -webkit-transform: perspective(200px) rotateY(180deg); }
     100% { -webkit-transform: perspective(200px) rotateY(180deg) rotateX(180deg); }
-}	
+}
 
 
 @keyframes second_object_animate {
-    0% { 
+    0% {
         transform: perspective(200px) rotateX(0deg) rotateY(0deg);
-        -webkit-transform: perspective(200px) rotateX(0deg) rotateY(0deg); 
-    } 50% { 
+        -webkit-transform: perspective(200px) rotateX(0deg) rotateY(0deg);
+    } 50% {
         transform: perspective(200px) rotateX(180deg) rotateY(0deg);
         -webkit-transform: perspective(200px) rotateX(180deg) rotateY(0deg) ;
-    } 100% { 
+    } 100% {
         transform: perspective(200px) rotateX(180deg) rotateY(180deg);
         -webkit-transform: perspective(200px) rotateX(180deg) rotateY(180deg);
     }
@@ -193,13 +193,13 @@
 }
 
 @keyframes third_object_animate {
-    0% { 
+    0% {
         transform: perspective(300px) rotateX(0deg) rotateY(0deg);
-        -webkit-transform: perspective(300px) rotateX(0deg) rotateY(0deg); 
-    } 50% { 
+        -webkit-transform: perspective(300px) rotateX(0deg) rotateY(0deg);
+    } 50% {
         transform: perspective(300px) rotateX(-180deg) rotateY(0deg);
         -webkit-transform: perspective(300px) rotateX(-180deg) rotateY(0deg) ;
-    } 100% { 
+    } 100% {
         transform: perspective(300px) rotateX(-180deg) rotateY(-180deg);
         -webkit-transform: perspective(300px) rotateX(-180deg) rotateY(-180deg);
     }
@@ -209,7 +209,7 @@
 /* Global properties (body, common classes, structure etc)
 /* ========================================================================== */
 body {
-    font-family: 'Roboto', sans-serif;    
+    font-family: 'Roboto', sans-serif;
     font-size: 15px;
     line-height: 1.6;
     background: #fbfbfb;
@@ -1519,8 +1519,8 @@ input[type=checkbox] {
 .logo {
     background-color: #3c64ff;
     height: 100px;
-    line-height: 100px; 
-    margin-bottom: -20px;   
+    line-height: 100px;
+    margin-bottom: -20px;
 }
 .logo a {
     margin: auto auto;
@@ -1854,7 +1854,7 @@ input[type=checkbox] {
 .inquiry .media {
     display: inline-block;
     margin: 15px auto 15px -4px;
-    width: 33.333%;   
+    width: 33.333%;
 }
 .inquiry .media + .media {border-left: 1px solid #efefef;  padding-left: 30px;}
 .inquiry .media-body > strong {
@@ -2119,7 +2119,7 @@ input[type=checkbox] {
         text-align: right;
         width: 24%;
     }
-    
+
     .theme-header-2 .logo {margin: initial;}
     .theme-header-2 .right-menu {width: 50%;}
 
@@ -2374,7 +2374,7 @@ input[type=checkbox] {
     line-height: 34px;
     background-color: rgba(60, 100, 255, 0.5);
     border: 2px solid #3c64ff;
-    color: #ffffff;  
+    color: #ffffff;
 }
 .main-slider .owl-theme .owl-controls .owl-nav [class*=owl-] .fa {
 
@@ -3346,12 +3346,12 @@ span.span-caption:after {
     background: none;
     background: rgba(60, 100, 255, 0.5) none repeat scroll 0 0;
     border: 2px solid #3c64ff;
-    color: #fff;  
+    color: #fff;
 }
 .swiper-button-prev .fa,
 .swiper-button-next .fa {
     font-size: 26px;
-    font-weight: 900; 
+    font-weight: 900;
 }
 .swiper-button-prev:hover,
 .swiper-button-next:hover{
@@ -4963,7 +4963,7 @@ span.span-caption:after {
     bottom: 0;
     right: 0;
     display: inline-block;
-    margin: auto;   
+    margin: auto;
     opacity: 0;
     -webkit-animation: fadeOut .4s;
     animation: fadeOut .4s;
@@ -6106,7 +6106,7 @@ ul.team-details li {
 }
 
 .property-listing .thumbnail-property-card .caption-social {
-    display: inline-block;  
+    display: inline-block;
     width: 100%;
 }
 .caption-social .social-icons {
@@ -6137,12 +6137,12 @@ ul.team-details li {
 }
 .property-text {
     color: #7f7f7f;
-    margin: 25px 0;    
+    margin: 25px 0;
     font-size: 13px;
     padding: 10px 20px;
 }
 .property-text a:not(.btn-theme), .property-des .table td a:not(.btn-theme) {
-    color: #7f7f7f;  
+    color: #7f7f7f;
 }
 .property-text a:not(.btn-theme):hover, .property-text a:not(.btn-theme):focus,
 .property-des .table td a:not(.btn-theme):hover, .property-des .table td a:not(.btn-theme):focus {
@@ -6220,14 +6220,14 @@ ul.team-details li {
 @media (max-width: 767px) {
     .property-des .features-wrap ul li {
         width: 44%;
-    }    
+    }
     .additional-details li strong {
         width: 35%;
     }
     .additional-details li span {
         width: 62%;
     }
-    .property-des .google-map, .property-des .map-canvas, .property-des #map-canvas2 {        
+    .property-des .google-map, .property-des .map-canvas, .property-des #map-canvas2 {
         max-height: 200px;
         min-height: 200px;
     }
@@ -6245,7 +6245,7 @@ ul.team-details li {
     .property-des .res-table td, .similar-propery .res-table td {
         width: 50%;
         float: left;
-    }    
+    }
 }
 @media (max-width: 567px){
     .property-des .buttons .btn-theme {
@@ -8844,23 +8844,76 @@ input[type=number]::-webkit-outer-spin-button {
 .appimg > img {
     display: inline-block;
     float: left;
-    margin: 5px;   
+    margin: 5px;
 }
 .print-page .property-des .features-wrap ul li {
     width: 45%;
 }
-@media (max-width: 767px) {   
+@media (max-width: 767px) {
     .print-page .property-des .features-wrap ul li{
         width: 85%;
     }
 }
-@media (max-width: 767px) {   
+@media (max-width: 767px) {
     .print-page .property-des .features-wrap ul li{
         width: 85%;
     }
 }
-@media (min-width: 992px) and (max-width: 1199px){   
+@media (min-width: 992px) and (max-width: 1199px){
     .print-page .property-des .features-wrap ul li{
         width: 85%;
     }
 }
+
+/****************************************************************************/
+
+    .page-section2 {
+
+        position: absolute;
+        top: 0;
+        padding-top: 70px;
+        padding-bottom: 70px;
+        overflow: hidden;
+        z-index:0;
+        /* small devices */
+    }
+    .page-section2.md-padding {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    .page-section2.sm-padding {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .page-section2.no-padding {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+    .page-section2.no-padding-top {
+        padding-top: 0;
+    }
+    .page-section2.no-padding-bottom {
+        padding-bottom: 0;
+    }
+    .page-section2.no-bottom-space {
+        margin-bottom: -70px;
+    }
+    .page-section2.light {
+        background-color: #f4f6f7;
+    }
+    .page-section2.dark {
+        /*background-color: #14181c;*/
+        background-image: url(../img/preview/patterns/dark-pattern-1.png);
+        color: #fff;
+    }
+    .page-section2.image {
+        background: url(../img/page-section2-image.png) center top no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+    .page-section2.of-visible {
+        overflow: visible;
+    }
+    .page-section2.sub-page {
+        padding-top: 30px;
+    }

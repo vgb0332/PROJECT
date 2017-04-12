@@ -25,6 +25,7 @@
         <!-- Theme CSS -->
         <link href="assets/css/theme.css" rel="stylesheet">
         <link href="assets/css/old_css.css" rel="stylesheet"> <!--old version css for Mark-->
+        <link href="assets/css/main.css" rel="stylesheet">
 
         <!-- Head Libs -->
         <script src="assets/plugins/modernizr.custom.js"></script>
@@ -176,7 +177,7 @@
                     <div class="swiper-slide">
 
                         <!-- PAGE -->
-                        <section class="page-section">
+                        <section class="page-section" style="display:none;">
                             <div class="container">
 
                                 <hr class="page-divider small transparent"/>
@@ -186,28 +187,7 @@
                                 <div class="form-search light">
                                     <form onsubmit="searchPlaces(); return false;">
 
-                                        <div class="row row-inputs">
-                                            <div class="col-sm-12 col-md-6">
-                                                <div class="form-group has-icon has-label">
-                                                    <label for="formSearchUpLocation">장소명을 검색하세요</label>
-                                                    <input type="text" class="form-control" id="formSearchUpLocation" placeholder="검색해주세요...">
-                                                    <span class="form-control-icon"><i class="fa fa-map-marker"></i></span>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-12 col-md-6">
-                                                <div class="form-group has-icon has-label">
-                                                    <label></label>
-                                                    <select class="selectpicker input-price" data-live-search="true" data-width="100%"
-                                                            data-toggle="tooltip" title="Select">
-                                                        <option>구분</option>
-                                                        <option>매매</option>
-                                                        <option>전세</option>
-                                                        <option>월세</option>
-                                                    </select>
-                                                    <span class="form-control-icon"><i class="fa  fa-caret-down"></i></span>
-                                                </div>
-                                            </div>
-                                        </div>
+
 
                                         <div class="row row-inputs">
                                             <div class="col-sm-12 col-md-4">
@@ -381,8 +361,112 @@
                                 </div>
 
                             </div>
+
                         </section>
                         <!-- /PAGE -->
+                        <section class="page-section2">
+                          <div class="container" style="width:auto;">
+
+                              <hr class="page-divider small transparent"/>
+                              <h3 class="block-title alt2"> 부동산 정보 검색 TAB</h3>
+
+                              <!-- Search form -->
+                              <div class="form-search light">
+                                  <form onsubmit="searchPlaces(); return false;">
+
+
+
+                                      <div class="row row-inputs">
+                                          <div class="col-sm-12 col-md-3">
+                                              <div class="form-group has-icon has-label">
+                                                  <label>시도</label>
+                                                  <select
+                                                      class="selectpicker" data-live-search="true" data-width="100%"
+                                                      data-toggle="tooltip" title="Select">
+                                                      <option> 서울시 </option>
+                                                      <option> 부산시 </option>
+                                                      <option> 대구시 </option>
+                                                      <option> 인천시 </option>
+                                                      <option> 울산시 </option>
+                                                      <option> 대전시 </option>
+                                                      <option> 광주시 </option>
+                                                      <option> 세종시 </option>
+                                                      <option> 경기도 </option>
+                                                      <option> 강원도 </option>
+                                                      <option> 충북도 </option>
+                                                      <option> 충남도 </option>
+                                                      <option> 전북도 </option>
+                                                      <option> 전남도 </option>
+                                                      <option> 경북도 </option>
+                                                      <option> 경남도 </option>
+                                                      <option> 제주도 </option>
+                                                  </select>
+                                                  <span class="form-control-icon"><i class="fa  fa-caret-down"></i></span>
+                                              </div>
+                                          </div>
+
+                                          <div class="col-sm-12 col-md-3">
+                                              <div class="form-group has-icon has-label">
+                                                  <label>시군구</label>
+                                                  <select class="selectpicker" data-live-search="true" data-width="100%"
+                                                          data-toggle="tooltip" title="Select">
+                                                      <option>난방</option>
+                                                      <option>지하철</option>
+                                                      <option>주차공간</option>
+                                                  </select>
+                                                  <span class="form-control-icon"><i class="fa  fa-caret-down"></i></span>
+                                              </div>
+                                          </div>
+                                          <div class="col-sm-12 col-md-3">
+                                              <div class="form-group has-icon has-label">
+                                                  <label>동</label>
+                                                  <select class="selectpicker" data-live-search="true" data-width="100%"
+                                                          data-toggle="tooltip" title="Select">
+                                                      <option> 5천미만</option>
+                                                      <option> 1억미만</option>
+                                                      <option> 2억미만</option>
+                                                      <option> 3억미만</option>
+                                                      <option> 4억미만</option>
+                                                      <option> 5억미만</option>
+                                                      <option> 6억미만</option>
+                                                      <option> 7억미만</option>
+                                                      <option> 8억미만</option>
+                                                      <option> 9억미만</option>
+                                                      <option> 10억미만</option>
+                                                      <option> 10억이상</option>
+                                                  </select>
+                                                  <span class="form-control-icon"><i class="fa  fa-caret-down"></i></span>
+                                              </div>
+                                          </div>
+                                          <div class="col-sm-12 col-md-3">
+                                            <div class="form-group has-icon has-label">
+                                                <label>번지</label>
+                                                <select class="selectpicker" data-live-search="true" data-width="100%"
+                                                        data-toggle="tooltip" title="Select">
+                                                    <option> 5천미만</option>
+                                                    <option> 1억미만</option>
+                                                    <option> 2억미만</option>
+                                                    <option> 3억미만</option>
+                                                    <option> 4억미만</option>
+                                                    <option> 5억미만</option>
+                                                </select>
+                                                <span class="form-control-icon"><i class="fa  fa-caret-down"></i></span>
+                                            </div>
+                                          </div>
+
+                                      </div>
+
+
+                              <hr class="page-divider half transparent"/>
+
+                              <h3 class="block-title alt2"><i class="fa fa-angle-down"></i><!----></h3>
+
+
+                              </div>
+
+                          </div>
+                        </section>
+
 
                     </div>
                 </div>
