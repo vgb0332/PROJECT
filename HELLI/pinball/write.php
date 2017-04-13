@@ -1,13 +1,12 @@
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
+<?php
+require("config/config.php");
+require("lib/db.php");
+$conn=db_init($config["host"],$config["duser"],$config["dpw"],$config["dname"]);
+?>
 <!DOCTYPE HTML>
 <html style="background-color:rgba(255,255,255,1);">
 	<head>
-		<meta charset="utf-8">
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Pinball Website Template | Home :: w3layouts</title>
@@ -17,7 +16,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 		</script>
 		<!----webfonts---->
-		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 		<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
 		<!----//webfonts---->
 		<!-- Global CSS for the page and tiles -->
@@ -25,6 +24,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
   		<!-- //Global CSS for the page and tiles -->
 		<!---start-click-drop-down-menu----->
 		<script src="js/jquery.min.js"></script>
+
+		<script>
+			UPLOADCARE_LOCALE = "en";
+			UPLOADCARE_TABS = "file url facebook gdrive";
+			UPLOADCARE_PUBLIC_KEY = "d8942be81c58a5c7b877";
+		</script>
+		<script charset="utf-8" src="//ucarecdn.com/libs/widget/2.10.3/uploadcare.full.min.js"></script>
         <!----start-dropdown--->
          <script type="text/javascript">
 			var $ = jQuery.noConflict();
@@ -96,101 +102,69 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div class="clear"> </div>
 			</div>
 		</div>
-		<!---//End-header---->
-		<!---start-content---->
-		<div class="content" style="background-color:rgba(255,255,255,1);">
+
+    <div class="content" style="background-color:rgba(255,255,255,1);">
 			<div class="wrap">
 			 <div id="main" role="main">
-			      <ul id="tiles">
-			        <!-- These are our grid blocks -->
 
-			        <!--/ajax 사용 해서 게시글 받아오기 그리고 받아온 게시글 배열을 js로/--->
-			         <li onclick="location.href='single-page.html?id=1';">
-			        	<img src="images/img1.jpg" width="100%" height="100%">
-			        	<div class="post-info">
-			        		<div class="post-basic-info">
-				        		<h3><a href="#">Animation films</a></h3>
-				        		<span><a href="#"><label> </label>Movies</a></span>
-				        		<p>Lorem Ipsum is simply dummy text of the printing & typesetting industry.</p>
-			        		</div>
-			        		<div class="post-info-rate-share">
-			        			<div class="rateit">
-			        				<span> </span>
-			        			</div>
-			        			<div class="post-share">
-			        				<span> </span>
-			        			</div>
-			        			<div class="clear"> </div>
-			        		</div>
-			        	</div>
-			        </li>
-			        <li onclick="location.href='single-page.html';">
-			        	<img src="images/img2.jpg" width="100%" height="100%">
-						<div class="post-info">
-			        		<div class="post-basic-info">
-				        		<h3><a href="#">Animation films</a></h3>
-				        		<span><a href="#"><label> </label>Movies</a></span>
-				        		<p>Lorem Ipsum is simply dummy text of the printing & typesetting industry.</p>
-			        		</div>
-			        		<div class="post-info-rate-share">
-			        			<div class="rateit">
-			        				<span> </span>
-			        			</div>
-			        			<div class="post-share">
-			        				<span> </span>
-			        			</div>
-			        			<div class="clear"> </div>
-			        		</div>
-			        	</div>
-					</li>
-			        <li onclick="location.href='single-page.html';">
-			        	<img src="images/img3.jpg" width="100%" height="100%">
-			        	<div class="post-info">
-			        		<div class="post-basic-info">
-				        		<h3><a href="#">Animation films</a></h3>
-				        		<span><a href="#"><label> </label>Movies</a></span>
-				        		<p>Lorem Ipsum is simply dummy text of the printing & typesetting industry.</p>
-			        		</div>
-			        		<div class="post-info-rate-share">
-			        			<div class="rateit">
-			        				<span> </span>
-			        			</div>
-			        			<div class="post-share">
-			        				<span> </span>
-			        			</div>
-			        			<div class="clear"> </div>
-			        		</div>
-			        	</div>
-			        </li>
-			        <li onclick="location.href='single-page.html';">
-			        	<img src="images/img4.jpg" width="100%" height="100%">
-			        	<div class="post-info">
-			        		<div class="post-basic-info">
-				        		<h3><a href="#">Animation films</a></h3>
-				        		<span><a href="#"><label> </label>Movies</a></span>
-				        		<p>Lorem Ipsum is simply dummy text of the printing & typesetting industry.</p>
-			        		</div>
-			        		<div class="post-info-rate-share">
-			        			<div class="rateit">
-			        				<span> </span>
-			        			</div>
-			        			<div class="post-share">
-			        				<span> </span>
-			        			</div>
-			        			<div class="clear"> </div>
-			        		</div>
-			        	</div>
-			        </li>
-			        <!-- End of grid blocks -->
-			      </ul>
-			    </div>
-			</div>
-		</div>
-		<!---//End-content---->
-		<!----wookmark-scripts---->
+         <article>
+           <form action="process.php" method="post">
+
+						 <select class="form-group" name="category">
+						   <option>아파트/주택</option>
+						   <option>토지</option>
+						   <option>건물</option>
+						   <option>오피스</option>
+						   <option>공공데이터</option>
+							 <option>기타</option>
+						 </select>
+
+	           <div class="form-group">
+	             <label for="form-title">제목</label>
+	             <input type="text" class="form-control" name="title" id="form-title" placeholder="제목을 입력하세요">
+	           </div>
+
+	           <div class="form-group">
+	             <label for="form-author">작성자</label>
+	             <input type="text" class="form-control" name="author" id="form-author" placeholder="작성자를 입력하세요">
+	           </div>
+
+						 <div class="form-group">
+							 <label for="form-img">이미지url</label>
+							 <input type="text" class="form-control" name="img" id="form-img" placeholder="이미지 url을 입력하세요">
+						 </div>
+
+	           <div class="form-group">
+	             <label for="form-">본문</label>
+	             <textarea class="form-control" rows=10 name="description" id="form-description" placeholder="본문을 입력하세요"></textarea>
+	           </div>
+						 <input type="hidden" role="uploadcare-uploader"
+				       data-crop="disabled"
+				       data-preview-step="true"
+				       data-images-only="true" />
+	           <input type="submit" name="name" class="btn btn-default btn-lg">
+           </form>
+         </article>
+				 <script>
+
+				 </script>
+				 <script>
+				 	var singleWidget = uploadcare.SingleWidget('[role=uploadcare-uploader]');
+					singleWidget.onUploadComplete(function(info){
+						document.getElementById('form-description').value = document.getElementById('form-description').value + '<img src="' + info.cdnUrl+'">';
+					});
+				 </script>
+
+
+       </div>
+   </div>
+ </div>
+
+
+    <!----wookmark-scripts---->
 		  <script src="js/jquery.imagesloaded.js"></script>
 		  <script src="js/jquery.wookmark.js"></script>
-			<script src="bootstrap/js/bootstrap.min.js"></script>
+      <script src="bootstrap/js/bootstrap.min.js"></script>
 		  <script type="text/javascript">
 		    (function ($){
 		      var $tiles = $('#tiles'),
