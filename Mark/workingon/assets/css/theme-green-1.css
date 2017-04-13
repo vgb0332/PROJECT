@@ -114,17 +114,17 @@
 #second_object{
     -webkit-animation: second_object 1s forwards, second_object_animate 1s infinite ease-in-out;
     animation: second_object 1s forwards, second_object_animate 1s infinite ease-in-out;
-}	
+}
 #third_object{
     -webkit-animation: third_object 1s forwards, third_object_animate 1s infinite ease-in-out;
     animation: third_object 1s forwards, third_object_animate 1s infinite ease-in-out;
-}	
+}
 
 
 
 @-webkit-keyframes second_object {
     100% { width: 100px; height:100px; left: 48px; top: 48px; }
-}		
+}
 @keyframes second_object {
     100% { width: 100px; height:100px; left: 48px; top: 48px; }
 }
@@ -132,7 +132,7 @@
 
 @-webkit-keyframes third_object {
     100% { width: 150px; height:150px; left: 23px; top: 23px;}
-}		
+}
 @keyframes third_object {
     100% { width: 150px; height:150px; left: 23px; top: 23px;}
 }
@@ -149,13 +149,13 @@
 }
 
 @keyframes first_object_animate {
-    0% { 
+    0% {
         transform: perspective(100px) rotateX(0deg) rotateY(0deg);
-        -webkit-transform: perspective(100px) rotateX(0deg) rotateY(0deg); 
-    } 50% { 
+        -webkit-transform: perspective(100px) rotateX(0deg) rotateY(0deg);
+    } 50% {
         transform: perspective(100px) rotateX(-180deg) rotateY(0deg);
         -webkit-transform: perspective(100px) rotateX(-180deg) rotateY(0deg) ;
-    } 100% { 
+    } 100% {
         transform: perspective(100px) rotateX(-180deg) rotateY(-180deg);
         -webkit-transform: perspective(100px) rotateX(-180deg) rotateY(-180deg);
     }
@@ -167,17 +167,17 @@
     0% { -webkit-transform: perspective(200px); }
     50% { -webkit-transform: perspective(200px) rotateY(180deg); }
     100% { -webkit-transform: perspective(200px) rotateY(180deg) rotateX(180deg); }
-}	
+}
 
 
 @keyframes second_object_animate {
-    0% { 
+    0% {
         transform: perspective(200px) rotateX(0deg) rotateY(0deg);
-        -webkit-transform: perspective(200px) rotateX(0deg) rotateY(0deg); 
-    } 50% { 
+        -webkit-transform: perspective(200px) rotateX(0deg) rotateY(0deg);
+    } 50% {
         transform: perspective(200px) rotateX(180deg) rotateY(0deg);
         -webkit-transform: perspective(200px) rotateX(180deg) rotateY(0deg) ;
-    } 100% { 
+    } 100% {
         transform: perspective(200px) rotateX(180deg) rotateY(180deg);
         -webkit-transform: perspective(200px) rotateX(180deg) rotateY(180deg);
     }
@@ -193,13 +193,13 @@
 }
 
 @keyframes third_object_animate {
-    0% { 
+    0% {
         transform: perspective(300px) rotateX(0deg) rotateY(0deg);
-        -webkit-transform: perspective(300px) rotateX(0deg) rotateY(0deg); 
-    } 50% { 
+        -webkit-transform: perspective(300px) rotateX(0deg) rotateY(0deg);
+    } 50% {
         transform: perspective(300px) rotateX(-180deg) rotateY(0deg);
         -webkit-transform: perspective(300px) rotateX(-180deg) rotateY(0deg) ;
-    } 100% { 
+    } 100% {
         transform: perspective(300px) rotateX(-180deg) rotateY(-180deg);
         -webkit-transform: perspective(300px) rotateX(-180deg) rotateY(-180deg);
     }
@@ -209,7 +209,7 @@
 /* Global properties (body, common classes, structure etc)
 /* ========================================================================== */
 body {
-    font-family: 'Roboto', sans-serif;    
+    font-family: 'Roboto', sans-serif;
     font-size: 15px;
     line-height: 1.6;
     background: #fbfbfb;
@@ -1485,8 +1485,8 @@ input[type=checkbox] {
 .logo {
     background-color: #2e9063;
     height: 100px;
-    line-height: 100px; 
-    margin-bottom: -20px;   
+    line-height: 100px;
+    margin-bottom: -20px;
 }
 .logo a {
     margin: auto auto;
@@ -2293,10 +2293,10 @@ input[type=checkbox] {
     line-height: 34px;
     background-color: rgba(46, 144, 99, 0.5);
     border: 2px solid #2e9063;
-    color: #ffffff;  
+    color: #ffffff;
 }
 .main-slider .owl-theme .owl-controls .owl-nav [class*=owl-] .fa {
-  
+
 }
 @media (min-width: 992px) and (max-width: 1100px) {
     .main-slider .owl-theme .owl-controls .owl-nav [class*=owl-] {
@@ -3243,12 +3243,12 @@ span.span-caption:after {
     background: none;
     background: rgba(46, 144, 99, 0.5) none repeat scroll 0 0;
     border: 2px solid #2e9063;
-    color: #fff;  
+    color: #fff;
 }
 .swiper-button-prev .fa,
 .swiper-button-next .fa {
     font-size: 26px;
-    font-weight: 900; 
+    font-weight: 900;
 }
 .swiper-button-prev:hover,
 .swiper-button-next:hover{
@@ -4843,7 +4843,7 @@ span.span-caption:after {
     bottom: 0;
     right: 0;
     display: inline-block;
-    margin: auto;   
+    margin: auto;
     opacity: 0;
     -webkit-animation: fadeOut .4s;
     animation: fadeOut .4s;
@@ -8531,3 +8531,5 @@ input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
+
+/*--------------------------------------------------------------------------*/
