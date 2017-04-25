@@ -9,7 +9,7 @@ $conn=db_init($config["host"],$config["duser"],$config["dpw"],$config["dname"]);
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Pinball Website Template | Home :: w3layouts</title>
+		<title>RAIZ Blog :: Write</title>
 		<link href="css/style.css" rel='stylesheet' type='text/css' />
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="shortcut icon" type="image/x-icon" href="images/fav-icon.png" />
@@ -95,7 +95,7 @@ $conn=db_init($config["host"],$config["duser"],$config["dpw"],$config["dname"]);
 				<div class="userinfo">
 					<div class="user">
 						<ul>
-							<li><a href="#"><img src="images/user-pic.png" title="user-name" /><span>Ipsum</span></a></li>
+							<li><a href="#"><img src="images/user-pic.png" title="user-name" /><span>손님</span></a></li>
 						</ul>
 					</div>
 				</div>
