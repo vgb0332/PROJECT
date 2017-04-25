@@ -1,0 +1,29 @@
+/* For adding some design to theme.css and bootstrap.css*/
+
+.btn-theme-selected {
+    color: white;
+    border-width: 1px;
+    background-color: #000000;
+    border-color: #000000;
+    padding: 13px 20px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1;
+    text-transform: uppercase;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+.row-fixed-8 {
+  height:8vh;
+}
+
+.row-fixed-10 {
+  height:10vh;
+}
+
+@media (max-width: 992px) {
+  .row-fixed-8, .row-fixed-10 {height:auto;}
+  .btn{height:30px;}
+}

@@ -1,7 +1,0 @@
-9_4_2017
-
-pinball = current template for building blog
-pinball-web = org template
-
-COMMENT : Few changes from org template. Please check out. I'm planning to add
-asynchronzed loading for posts with preloader.

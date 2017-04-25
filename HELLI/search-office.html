@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- HELLI : css 및 jsp 정리는 오늘(26.4.2017)까지 기능 붙여 넣고 하는 것으로 할게요.-->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>RAIZ 부동산 검색</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="./css/theme/theme.css" rel="stylesheet" type="text/css">
+    <link href="./css/main.css" rel="stylesheet" type="text/css">
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="css/font/BMfont.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+
+    <!-- Theme CSS -->
+    <link href="css/grayscale.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <div id="img-tab-wrapper" style="font-family:BMJUA;position:absolute;width:100vw;height:15vh;">
+    <div id="img-div" style="position:relative;width:100%;height:100%;background-color:rgba(255,255,255,1);">
+      <a href="./index.html">그림그림그림그림</a>
+    </div>
+  </div>
+  <!-- default tab-->
+  <div id="option-tab-wrapper" class="container" style="position:relative;height:15vh;">
+    <div id="search-option-setting" style="position:absolute;bottom:0;width:100e;height:5vh;display:inline-block;text-align:center;background-color:rgba(200,200,200,1);">
+      <div class="btn-group-justified" style="height:100%;">
+        <a href="./search-toji.html" class="btn btn-theme">토 지</a>
+        <a href="./search-geonmul.html" class="btn btn-theme">건 물</a>
+        <a href="./search-jutaek.html" class="btn btn-theme" >주 택</a>
+        <a href="./search-apt.html" class="btn btn-theme">아파트</a>
+        <a href="./search-office.html" class="btn btn-theme-selected" disabled><font style="color:white;">오피스</font></a>
+      </div>
+    </div>
+  </div>
+  <!-- /default tab-->
+<!-- Address search  -->
+  <div id="addressWrapper" class ="container" style="position:relative;height:85vh;padding-top:10px;">
+
+    <div id="address-body" style="position:relative;width:100%;height:100%;background-color:#3c64ff;">
+      <div id="address-content" style="width:90%;height:100%;margin:auto;background-color:#3c64ff;">
+        <div id="add-header">
+          <ul class="nav nav-tabs " id="tabs">
+            <li role="presentation" class="active" id="sidotab"><a href="javascript:void(0);" onclick="sido_process();" id="sido">시 / 도</a></li>
+            <li role="presentation" class="" id="gutab"><a href="javascript:void(0);" onclick="gu_process();" id="gu">구</a></li>
+            <li role="presentation" class="" id="dongtab"><a href="javascript:void(0);" onclick="dong_process();" id="dong">동</a></li>
+          </ul>
+        </div>
+
+      <!--서버에 올린후 검색 기능 이식.-->
+      <div id="Dosi" class="btn-group" role="group" aria-label="...">
+        <div class="btn-group btn-group-justified" role="group" aria-label="...">
+          <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default" id="seoul" value="서울특별시">서울특별시</button>
+          </div>
+          <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default" id="busan" value="부산광역시">부산광역시</button>
+          </div>
+          <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default" id="deagoo" value="대구광역시">대구광역시</button>
+          </div>
+        </div>
+        <div class="btn-group btn-group-justified" role="group" aria-label="...">
+          <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default" id="inceon" value="인천광역시">인천광역시</button>
+          </div>
+          <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default" id="deajun" value="대전광역시">대전광역시</button>
+          </div>
+          <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default" id="ulsan" value="울산광역시">울산광역시</button>
+          </div>
+        </div>
+        <div class="btn-group btn-group-justified" role="group" aria-label="...">
+          <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default" id="kyungi" value="경기도">경기도</button>
+          </div>
+          <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default" id="kangwon" value="강원도">강원도</button>
+          </div>
+          <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default" id="chungbuk" value="충청북도">충청북도</button>
+          </div>
+        </div>
+        <div class="btn-group btn-group-justified" role="group" aria-label="...">
+          <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default" id="chungnam" value="충청남도">충청남도</button>
+          </div>
+          <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default" id="jeonbuk" value="전라북도">전라북도</button>
+          </div>
+          <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default" id="jeonnam" value="전라남도">전라남도</button>
+          </div>
+        </div>
+        <div class="btn-group btn-group-justified" role="group" aria-label="...">
+          <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default" id="kyungbuk" value="경상북도">경상북도</button>
+          </div>
+          <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default" id="kyungnam" value="경상남도">경상남도</button>
+          </div>
+          <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default" id="jeju" value="제주도">제주도</button>
+          </div>
+        </div>
+      </div>
+      <div id="SiGunGu" style="display:none;position:absolute;top:0;width:90%;height:90%;margin-left:5%; margin-top:10px; background-color:rgba(255,255,255, 1)">
+      </div>
+      <div id="dong" style="display:none;position:absolute;top:0;width:90%;height:90%;margin-left:5%; margin-top:10px; background-color:rgba(255,255,255, 1)">
+      </div>
+    <div id="addressFooter"style="position:absolute;bottom:0;width:90%;">
+    <a href="#detail-search" class="btn btn-theme page-scroll">
+    상세검색하기<i class="fa fa-angle-double-down animated"></i>
+    </a>
+    <button type="button" class="btn btn-theme" style="float:right;"><i class="fa fa-search" aria-hidden="true"> 이대로 검색하기</i></button>
+    </div>
+    </div>
+  </div>
+</div>
+<!--/address search-->
+<!--detail search-->
+  <div id="detail-search" class="container" style="position:relative;height:100vh;">
+    <div id="detail-search-body" style="position:relative;width:100%;height:100%;background-color:#3c64ff;">
+      <div id="detail-search-content" style="width:90%;height:100%;margin:auto;background-color:#3c64ff;">
+        <div id=search-tab style="position:absolute;top:5%;width:90%;height:90%;background-color:rgba(255,255,255, 1)">
+
+<!--삭제해도 무방한 부분.-->
+<div class="col-md-12 row-fixed-8" id="filterSearch" style="padding:0;">
+  <div class="col-md-12 row-fixed-8">
+  <label><h2>세부정보</h2></label>
+</div>
+        <div class="col-md-12 row-fixed-8" id="AreaRow1">
+            <div class="col-sm-12 col-md-3" style="margin-left:0; padding-left:0;">
+                    <label>대지면적</label>
+                    <select
+                        class="selectpicker" data-live-search="true" data-width="100%"
+                        data-toggle="tooltip" title="Select" name = "DJarea">
+                        <option value="65미만"> 65m<sup>2</sup>미만 </option>
+                        <option value="65_99"> 65~99m<sup>2</sup> </option>
+                        <option value="99_135"> 99~135m<sup>2</sup>미만 </option>
+                        <option value="135_165미만"> 135~165m<sup>2</sup>미만 </option>
+                        <option value="165_198미만"> 165~198m<sup>2</sup>미만 </option>
+                        <option value="198이상"> 198m<sup>2</sup>이상 </option>
+
+                    </select>
+            </div>
+
+            <div class="col-sm-12 col-md-3">
+                <div class="form-group has-icon has-label">
+                    <label>건축면적</label>
+                    <select class="selectpicker" data-live-search="true" data-width="100%"
+                            data-toggle="tooltip" title="Select" name = "GCarea">
+                            <option value="65미만"> 65m<sup>2</sup>미만 </option>
+                            <option value="65_99"> 65~99m<sup>2</sup> </option>
+                            <option value="99_135"> 99~135m<sup>2</sup>미만 </option>
+                            <option value="135_165미만"> 135~165m<sup>2</sup>미만 </option>
+                            <option value="165_198미만"> 165~198m<sup>2</sup>미만 </option>
+                            <option value="198이상"> 198m<sup>2</sup>이상 </option>
+
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-3">
+                <div class="form-group has-icon has-label">
+                    <label>건폐율</label>
+                    <select class="selectpicker" data-live-search="true" data-width="100%"
+                            data-toggle="tooltip" title="Select" name = "gunPae">
+                        <option> 10%</option>
+
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-3">
+              <div class="form-group has-icon has-label">
+                  <label>용적률</label>
+                  <select class="selectpicker" data-live-search="true" data-width="100%"
+                          data-toggle="tooltip" title="Select" name = "yongJeok">
+                          <option> 10%</option>
+
+                  </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-12 row-fixed-8" id="AreaRow2" style="margin-left:0; padding-left:0;">
+            <div class="col-sm-12 col-md-4">
+                  <label>연면적</label>
+                  <input type="text" class="form-control" id="yeonArea" placeholder="직접입력(XX-YY)">
+                  <!--직접 입력한 값의 최소/최대값 범위로 selectbox 설정.-->
+            </div>
+            <div class="col-sm-12 col-md-2">
+              <div class="form-group has-icon has-label">
+                  <label>이상</label>
+                  <select class="selectpicker" data-live-search="true" data-width="100%"
+                          data-toggle="tooltip" title="Select" name="yAreaMIN">
+                          <option value = "XX"> XX</option>
+                  </select>
+              </div>
+
+            </div>
+            <div class="col-sm-12 col-md-1"><div class="under0 ">~</div></div>
+            <div class="col-sm-12 col-md-2">
+              <div class="form-group has-icon has-label">
+                  <label>이하</label>
+                  <select class="selectpicker" data-live-search="true" data-width="100%"
+                          data-toggle="tooltip" title="Select" name="yAreaMAX">
+                          <option value = "YY"> YY</option>
+
+                  </select>
+              </div>
+            </div>
+          </div>
+
+
+            <div class="col-md-12 row-fixed-8" id="buildingUsage">
+            <div class="col-sm-12 col-md-4" style="margin-left:0; padding-left:0;">
+                  <label>건물용도</label>
+                  <select class="selectpicker" data-live-search="true" data-width="100%"
+                          data-toggle="tooltip" title="Select"name="mainPurpose">
+                          <option value="자동차 관련시설">자동차 관련시설</option>
+                          <option value="산업시설">산업시설</option>
+                          <option value="전기통신">전기통신</option>
+                          <option value="문화집회">문화집회</option>
+                          <option value="영업시설">영업시설</option>
+                          <option value="교육 및 복지">교육 및 복지</option>
+                          <option value="근린생활">근린생활</option>
+                          <option value="주거업무">주거업무</option>
+                          <option value="기타">ETC</option>
+                  </select>
+              </div>
+              <div class="col-sm-12 col-md-3">
+                <div class="form-group has-label">
+                    <label>집합/일반</label>
+                    <label class="radio-inline"><input type="radio" value="일반">일반</label>
+                    <label class="radio-inline"><input type="radio" value="집합">집합</label>
+                </div>
+            </div>
+          </div>
+
+          <div class="col-md-12 row-fixed-8" id="priceMember" style="margin-left:0; padding-left:0;">
+            <div class="col-sm-12 col-md-3">
+              <div class="form-group has-icon has-label">
+                  <label>공시지가</label>
+                  <select class="selectpicker" data-live-search="true" data-width="100%"
+                          data-toggle="tooltip" title="Select" name="gongsiPrice">
+                          <option value = "5천미만"> 5천미만</option>
+                          <option value = "1억미만"> 1억미만</option>
+                          <option value = "2억미만"> 2억미만</option>
+                          <option value = "3억미만"> 3억미만</option>
+                          <option value = "4억미만"> 4억미만</option>
+                          <option value = "5억미만"> 5억미만</option>
+                          <option value = "5억이상"> 5억이상</option>
+                  </select>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-3">
+              <div class="form-group has-icon has-label">
+                  <label>실거래가</label>
+                  <select class="selectpicker" data-live-search="true" data-width="100%"
+                          data-toggle="tooltip" title="Select" name="realPrice">
+                          <option value = "5천미만"> 5천미만</option>
+                          <option value = "1억미만"> 1억미만</option>
+                          <option value = "2억미만"> 2억미만</option>
+                          <option value = "3억미만"> 3억미만</option>
+                          <option value = "4억미만"> 4억미만</option>
+                          <option value = "5억미만"> 5억미만</option>
+                          <option value = "5억이상"> 5억이상</option>
+                  </select>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-3">
+              <div class="form-group has-icon has-label">
+                  <label>기준시가</label>
+                  <select class="selectpicker" data-live-search="true" data-width="100%"
+                          data-toggle="tooltip" title="Select" name="stdPrice">
+                          <option value = "5천미만"> 5천미만</option>
+                          <option value = "1억미만"> 1억미만</option>
+                          <option value = "2억미만"> 2억미만</option>
+                          <option value = "3억미만"> 3억미만</option>
+                          <option value = "4억미만"> 4억미만</option>
+                          <option value = "5억미만"> 5억미만</option>
+                          <option value = "5억이상"> 5억이상</option>
+                  </select>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-3">
+              <div class="form-group has-icon has-label">
+                  <label>임대료</label>
+                  <select class="selectpicker" data-live-search="true" data-width="100%"
+                          data-toggle="tooltip" title="Select" name="rentPrice">
+                          <option value = "5천미만"> 5천미만</option>
+                          <option value = "1억미만"> 1억미만</option>
+                          <option value = "2억미만"> 2억미만</option>
+                          <option value = "3억미만"> 3억미만</option>
+                          <option value = "4억미만"> 4억미만</option>
+                          <option value = "5억미만"> 5억미만</option>
+                          <option value = "5억이상"> 5억이상</option>
+                  </select>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col-md-12 row-fixed-8" id="floorRow">
+            <div class="col-sm-12 col-md-2">
+              <div class="form-group has-label">
+                  <label>주차대수</label>
+                  <label class="radio-inline"><input type="radio" value="자주식">자주식</label>
+                  <label class="radio-inline" style="margin-left:0;"><input type="radio" value="기계식">기계식</label>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-3">
+              <div class="form-group has-icon has-label">
+                  <label>층수(지상)</label>
+                  <input type="text" class="form-control" id="floor" placeholder="지상">
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-3">
+              <div class="form-group has-icon has-label">
+                  <label>층수(지하)</label>
+                  <input type="text" class="form-control" id="baseFloor" placeholder="지하">
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-12 row-fixed-8" id="modelRow">
+            <div class="col-sm-12 col-md-3" style="margin-left:0; padding-left:0;">
+              <div class="form-group has-icon has-label">
+                  <label>준공연도</label>
+                  <input type="text" class="form-control" id="jungongYear" placeholder="YYYY">
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-3">
+              <div class="form-group has-icon has-label">
+                  <label>사용승인연도</label>
+                  <select class="selectpicker" data-live-search="true" data-width="100%"
+                          data-toggle="tooltip" title="Select" name="permitedYear">
+                          <option value = "1960미만"> 5년이내</option>
+                          <option value = "1970미만"> 5~10년</option>
+                          <option value = "1980미만"> 1980미만</option>
+                          <option value = "1990미만"> 1990미만</option>
+                          <option value = "1990-1995"> 1990-1995</option>
+                          <option value = "1996-2000"> 1996-2000</option>
+                          <option value = "2000-2005"> 2000-2005</option>
+                          <option value = "2005-2010"> 2005-2010</option>
+                          <option value = "2010-2015"> 2010-2015</option>
+                  </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-12 row-fixed-8" id="energyRow">
+            <div class="col-sm-12 col-md-3" style="margin-left:0; padding-left:0;">
+              <div class="form-group has-icon has-label">
+                  <label>구현보류항목</label>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-3" style="margin-left:0; padding-left:0;">
+              <div class="form-group has-icon has-label">
+                  <label>에너지효율등급</label>
+                  <input type="checkbox" value="에너지Y">
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-3">
+              <div class="form-group has-icon has-label">
+                  <label>친환경건축물</label>
+                  <input type="checkbox" value="친환경Y">
+
+              </div>
+            </div>
+
+            <div class="col-sm-12 col-md-3">
+              <div class="form-group has-icon has-label">
+                  <label>지능형건축물</label>
+                  <input type="checkbox" value="지능형Y">
+
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-12 row-fixed-8" id="jiyeokJigu">
+            <div class="col-sm-12 col-md-3" style="margin-left:0; padding-left:0;">
+              <div class="form-group has-icon has-label">
+                  <label>지역정보</label>
+                  <select class="selectpicker" data-live-search="true" data-width="100%"
+                          data-toggle="tooltip" title="Select" name="joyeokInfo">
+                          <option value = "도시지역"> 도시지역</option>
+                          <option value = "관리지역"> 관리지역</option>
+                          <option value = "농림지역"> 농림지역</option>
+                          <option value = "자연환경보전지역"> 자연환경보전지역</option>
+                          <option value = "기타지역"> 기타지역</option>
+                  </select>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-3">
+              <div class="form-group has-icon has-label">
+                  <label>지구정보</label>
+                          <ul style="position:inline-block;">
+                          <li><input type="checkbox" value="전체">전체</li>
+                          <li><input type="checkbox" value="지역지구지정">지역지구지정</li>
+                          <li><input type="checkbox" value="개발계획">개발계획</li>
+                          <li><input type="checkbox" value="실시계획">실시계획</li>
+                          <li><input type="checkbox" value="준공">준공</li>
+                        </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12 row-fixed-8" id="sanitaryPurify">
+          <!--space div-->
+          </div>
+
+          <div class="col-md-12 row-fixed-8" id="sanitaryPurify">
+            <div class="col-sm-12 col-md-2" style="margin-left:0; padding-left:0;">
+              <label>오수처리</label>
+            </div>
+            <div class="col-sm-12 col-md-3">
+              <div class="form-group has-icon has-label">
+                  <label>용량인용</label>
+                  <select class="selectpicker" data-live-search="true" data-width="100%"
+                          data-toggle="tooltip" title="Select" name="yongRyang">
+                          <option value = "100미만"> 100미만</option>
+                          <option value = "100~200"> 100~200</option>
+                          <option value = "200~300"> 200~300</option>
+                          <option value = "300~400"> 300~400</option>
+                          <option value = "400이상"> 400이상</option>
+                  </select>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+<!--/삭제해도 무방한 부분.-->
+
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /detail search -->
+
+    <!-- Footer. -->
+    <footer style="position:relative;">
+        <div class="container text-center" style="padding:0 0 0 0;">
+            <p>Copyright &copy; RAIZ search page 2017.</p>
+        </div>
+    </footer>
+
+
+    <!-- REFERENCES -->
+
+    <script src="vendor/jquery/jquery.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script>
+      var sd     = ["seoul",
+                    "busan",
+                    "deagoo",
+                    "inceon",
+                    "deajun",
+                    "ulsan",
+                    "kyungi",
+                    "kangwon",
+                    "chungbuk",
+                    "chungnam",
+                    "jeonbuk",
+                    "jeonnam",
+                    "kyungbuk",
+                    "kyungnam",
+                    "jeju"];
+      for(var i=0;i<sd.length;i++)
+      {
+        var e = document.getElementById(sd[i]);
+        document.getElementById(sd[i]).onclick = function(){
+          document.getElementById("sido").text = this.value;
+          //document.getElementsByClassName("sido") = "inactive";
+          //document.getElementsByClassName("gu") = "active";
+        };
+      }
+
+    function sido_process()
+    {
+      //console.log("test");
+      //document.getElementById("sido").classList.remove('active');
+      //document.getElementById("gu").className += "active";
+      document.getElementById("sidotab").classList.add('active');
+      document.getElementById("gutab").classList.remove('active');
+      document.getElementById("dongtab").classList.remove('active');
+      //$('gu').addClass('active');
+      //console.log("test");
+    }
+
+    function gu_process()
+    {
+      //console.log("test");
+      //document.getElementById("sido").classList.remove('active');
+      //document.getElementById("gu").className += "active";
+      document.getElementById("gutab").classList.add('active');
+      document.getElementById("sidotab").classList.remove('active');
+      document.getElementById("dongtab").classList.remove('active');
+      //$('gu').addClass('active');
+      //console.log("test");
+    }
+
+    function dong_process()
+    {
+      //console.log("test");
+      //document.getElementById("sido").classList.remove('active');
+      //document.getElementById("gu").className += "active";
+      document.getElementById("dongtab").classList.add('active');
+      document.getElementById("sidotab").classList.remove('active');
+      document.getElementById("gutab").classList.remove('active');
+      //$('gu').addClass('active');
+      //console.log("test");
+    }
+
+    </script>
+
+    <script src="vendor/jquery/jquery.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
