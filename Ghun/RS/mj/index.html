@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="jquery-3.2.1.min.js"></script>
+  <title>검색 기능 탐색</title>
+</head>
+<body>
+<div style="block">
+    <p>   작성하세요   </p>
+
+    <div class="" style="display: block;">
+      <!--주소 검색 부분-->
+      <p>     검색      </p>
+        <form class="" action="#" method="post">
+          <input style="height:30px; width:400px;"type="search" name="blank_search" placeholder="시/군/구/동 별로 띄어서 작성하세요(반드시 동까지 작성)">
+          <input style="height:30px; width:60px;"type="submit" name="blank_submit" value="검 색">
+        </form>
+      <p>     주소      </p>
+      <div style="padding-bottom: 20px">
+      	 <form action="search.php?" method="post" accept-charset="utf-8">
+	         <select name="sigun" id="sigun" style="height:30px; width:200px; font-size: 20px">
+	         	 <option value="" disabled selected>시/군 선택</option>
+	             <option value="서울특별시">서울특별시</option>
+	             <option value="부산광역시">부산광역시</option>
+	             <option value="대구광역시">대구광역시</option>
+	         	 <option value="인천광역시">인천광역시</option>
+	         	 <option value="광주광역시">광주광역시</option>
+	         	 <option value="대전광역시">대전광역시</option>
+	         	 <option value="울산광역시">울산광역시</option>
+	         	 <option value="경기도">경기도</option>
+	         	 <option value="강원도">강원도</option>
+	         	 <option value="충청북도">충청북도</option>
+	         	 <option value="충청남도">충청남도</option>
+	         	 <option value="전라북도">전라북도</option>
+	         	 <option value="경상북도">경상북도</option>
+	         	 <option value="경상남도">경상남도</option>
+	         	 <option value="제주도">제주도</option>
+	         </select>
+	 		 <select name="gu" id="gu" style="height:30px; width:200px; font-size: 20px">
+	 		 	 <option value="" disabled selected>구 선택</option>
+
+	 		 </select>
+			 <select name = "dong" id="dong" style="height:30px; width:200px; font-size: 20px">
+	 		 	 <option value="" disabled selected>동 선택</option>
+
+	 		 </select>
+
+	         <input type="search" name="bun" value="" style="height:30px; width:150px; font-size: 20px">번
+
+	         <input type="search" name="ji" value="" style="height:30px; width:150px; font-size: 20px">지
+	         <input style="height:30px; width:60px;"type="submit" name="blank_submit" value="검 색">
+         </form>
+
+
+
+		 </div>
+
+
+
+
+      </div>
+      <!--/주소검색부분-->
+
+      <p>   면적    </p>
+      <div style="padding-bottom: 20px">
+        대지면적 <input type="search" name="daeji_area" value="">
+
+        건축면적 <input type="search" name="gunchuk_area" value="">
+
+        연면적 <input type="search" name="yun_area" value="">
+
+        용적률 <input type="search" name="yong_percent" value="">
+
+      </div>
+
+      <p>   가격    </p>
+      <div style="padding-bottom: 20px">
+        공시지가 <input type="search" name="gongsi_price" value="">
+
+        실거래가 <input type="search" name="sil_price" value="">
+
+        기준시가 <input type="search" name="gijun_price" value="">
+
+        임대료 <input type="search" name="imdae_price" value="">
+
+      </div>
+
+      <p>   주차대수  </p>
+      <div style="padding-bottom: 20px">
+        자주식 <input type="checkbox" name="daeji_area" value="">
+
+        기계식 <input type="checkbox" name="gunchuk_area" value="">
+      </div>
+
+      <p>   층수  </p>
+      <div style="padding-bottom: 20px">
+        지상 <input type="checkbox" name="jisang" value="">
+
+        지하 <input type="checkbox" name="jiha" value="">
+      </div>
+
+      <p>   연식  </p>
+      <div style="padding-bottom: 20px">
+        사용승인 <input type="search" name="sayong_year" value="">
+
+        준공연도 <input type="search" name="jungong_year" value="">
+      </div>
+
+      <p>   등급  </p>
+      <div style="padding-bottom: 20px">
+        에너지 효율등급 <input type="search" name="sayong_year" value="">
+
+        친황경건축물 등급 <input type="search" name="jungong_year" value="">
+
+        지능형 건축물 등급 <input type="search" name="jungong_year" value="">
+      </div>
+
+
+      <p>   오수정화시설  </p>
+      <div style="padding-bottom: 20px">
+        에너지 효율등급 <input type="search" name="sayong_year" value="">
+
+        친황경건축물 등급 <input type="search" name="jungong_year" value="">
+
+        지능형 건축물 등급 <input type="search" name="jungong_year" value="">
+      </div>
+
+      <div id="final_submit">
+
+
+        <input type="submit" value="검색">
+      </div>
+
+    </div>
+
+<script type="text/javascript" charset="utf-8">
+	var e = document.getElementById("sigun");
+	document.getElementById("sigun").onchange = function(){
+		var selected = e.options[e.selectedIndex].text;
+		console.log(selected);
+		$.ajax({
+  			url:'addr_search.php',
+  			type:'post',
+  			data:{
+  				Selected: selected,
+  				Type	: "sigun"
+  				},
+  			//dataType:'json',
+  			success:function(data){
+    			var res = JSON.parse(data);
+    			console.log(res);
+    			var x = document.getElementById("gu");
+    			var y = document.getElementById("dong");
+    			while ( x.hasChildNodes() ) { x.removeChild( x.firstChild ); }
+    			while ( y.hasChildNodes() ) { y.removeChild( y.firstChild ); }
+    			var gu_first_option = document.createElement("option");
+    			var dong_first_option = document.createElement("option");
+    			gu_first_option.text = "구 선택";
+    			//first_option.disabled = true;
+    			x.add(gu_first_option);
+    			dong_first_option.text = "동 선택";
+    			y.add(dong_first_option);
+    			for(var i = 1; i < res.length; ++i){
+    				var dong = res[i][0].split(' ')[1];
+    				//console.log(dong);
+    				var option = document.createElement("option");
+				    option.text = dong;
+				    option.value = ""+dong;
+				    x.add(option);
+    			}
+
+    		}
+  		});
+	};
+
+	var f = document.getElementById("gu");
+	document.getElementById("gu").onchange = function(){
+		var selected = f.options[f.selectedIndex].text;
+		console.log(selected);
+		selected = e.options[e.selectedIndex].text + " " + f.options[f.selectedIndex].text;
+		//console.log(selected);
+		$.ajax({
+  			url:'addr_search.php',
+  			type:'post',
+  			data:{
+  				Selected: selected,
+  				Type	: "dong"
+  				},
+  			//dataType:'json',
+  			success:function(data){
+    			var res = JSON.parse(data);
+    			console.log(res);
+
+    			var x = document.getElementById("dong");
+    			while ( x.hasChildNodes() ) { x.removeChild( x.firstChild ); }
+    			var first_option = document.createElement("option");
+    			first_option.text = "동 선택";
+    			//first_option.disabled = true;
+    			x.add(first_option);
+    			for(var i = 1; i < res.length; ++i){
+    				var dong = res[i][0].split(' ')[2];
+    				//console.log(dong);
+    				var option = document.createElement("option");
+				    option.text = dong;
+				    option.value = dong;
+				    x.add(option);
+    			}
+
+    		}
+  		});
+	};
+
+
+</script>
+</body>
+</html>
