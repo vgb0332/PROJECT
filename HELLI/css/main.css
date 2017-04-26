@@ -1,5 +1,40 @@
 /* For adding some design to theme.css and bootstrap.css*/
 
+/*지훈 css*/
+#addressWrapper {
+  position:relative;
+  height:85%;
+}
+
+#add-header {
+    position: relative;
+    margin-left: 3%;
+    margin-bottom:10px;
+    padding-top: 2%;
+    padding-right: 10%;
+
+}
+
+#address-body {
+  position:relative;
+  width:100%;
+  height:90%;
+}
+
+#Dosi {
+    position: absolute;
+    top: 0;
+    height: auto;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-bottom: 5px grey;
+}
+
+
+
+/*주영 css*/
 .btn-theme-selected {
     color: white;
     border-width: 1px;
