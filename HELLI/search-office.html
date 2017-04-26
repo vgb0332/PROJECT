@@ -39,12 +39,12 @@
   <!-- default tab-->
   <div id="option-tab-wrapper" class="container" style="position:relative;height:15vh;">
     <div id="search-option-setting" style="position:absolute;bottom:0;width:100e;height:5vh;display:inline-block;text-align:center;background-color:rgba(200,200,200,1);">
-      <div class="btn-group-justified" style="height:100%;">
+      <div class="btn-group btn-group-justified" style="height:100%;">
         <a href="./search-toji.html" class="btn btn-theme">토 지</a>
         <a href="./search-geonmul.html" class="btn btn-theme">건 물</a>
         <a href="./search-jutaek.html" class="btn btn-theme" >주 택</a>
         <a href="./search-apt.html" class="btn btn-theme">아파트</a>
-        <a href="./search-office.html" class="btn btn-theme-selected" disabled><font style="color:white;">오피스</font></a>
+        <a href="./search-office.html" class="btn btn-theme-selected"><font style="color:white;">오피스</font></a>
       </div>
     </div>
   </div>
@@ -62,7 +62,7 @@
     <div id="address-content" style="width:90%;height:100%;margin:auto;">
     <!--서버에 올린후 검색 기능 이식.-->
 
-    <div id="Dosi" class="btn-group" role="group" aria-label="...">
+    <div id="sido" class="btn-group" role="group" aria-label="...">
       <div class="btn-group btn-group-justified" role="group" aria-label="...">
         <div class="btn-group" role="group">
           <button type="button" class="btn btn-default" id="seoul" value="서울특별시">서울특별시</button>
@@ -468,6 +468,82 @@
     <!-- REFERENCES -->
 
     <script>
+    //MAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARK
+    var sido_selected;
+    var gu_selected;
+    var dong_selected;
+
+      var sd     = ["seoul","busan", "deagoo",
+                    "inceon", "deajun", "ulsan",
+                    "kyungi", "kangwon", "chungbuk",
+                    "chungnam", "jeonbuk", "jeonnam",
+                    "kyungbuk", "kyungnam", "jeju"];
+
+     for(var i=0;i<sd.length;i++)
+     {
+       var e = document.getElementById(sd[i]);
+       document.getElementById(sd[i]).onclick = function(){
+         document.getElementById("sido").text = this.value;
+         sido_selected = this.value;
+         console.log(sido_selected);
+        //document.getElementById("sidotab").classList.remove('active');
+        //document.getElementById("gutab").classList.add('active');
+
+           $.ajax({
+              url:'./php/addr_search.php',
+              type:'post',
+              data:{
+                 Selected: sido_selected,
+                 Type   : "sigun"
+                 },
+              //dataType:'json',
+              success:function(data){
+                 var res = JSON.parse(data);
+                console.log(res);
+                var x = document.getElementById("Dosi");
+                var y = document.getElementById("SiGunGu");
+                //var z = document.getElementsByClassName("btn-group btn-group-justified");
+                x.style = "display: none";
+               var div = document.createElement("DIV");
+               var div2 = document.createElement("DIV");
+               div.className = "btn-group-justified";
+               div2.className = "btn-group";
+                for(var i = 1; i < res.length; ++i){
+                   var dong = res[i][0].split(' ')[1];
+                   console.log(dong);
+                   var btn = document.createElement("a");
+                   btn.className = "btn btn-default";
+                   var t = document.createTextNode(dong);
+                   btn.appendChild(t);
+                   btn.style = "color:inherit;";
+                   div.appendChild(btn);
+                   if((i%3) === 0){
+                      //console.log("hi");
+                      //var div2 = document.createElement("DIV");
+                      //div2.className = "btn-group";
+                      div2.appendChild(div);
+                      y.appendChild(div);
+                      div = document.createElement("DIV");
+                      div.className = "btn-group-justified";
+                      div2 = document.createElement("DIV");
+                      div2.className = "btn-group";
+                   }
+
+
+               }
+                y.style = "display: inline-block";
+
+             },
+             error:function(error){
+                console.log("error");
+                alert("error");
+             }
+
+           });
+       };
+     }
+
+    //GHUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUN
       var sd     = ["seoul",
                     "busan",
                     "deagoo",
