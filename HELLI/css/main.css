@@ -3,7 +3,7 @@
 /*지훈 css*/
 #addressWrapper {
   position:relative;
-  height:85%;
+  height:85vh;
 }
 
 #add-header {
@@ -24,17 +24,37 @@
 #Dosi {
     position: absolute;
     top: 0;
+    width:90%;
     height: auto;
-    margin-left: 5%;
-    margin-right: 5%;
     margin-top: 10px;
     margin-bottom: 10px;
     border-bottom: 5px grey;
 }
 
+#addressFooter{
+    position:absolute;bottom:0;width:90%;
 
+}
 
 /*주영 css*/
+
+#floatingmenu{
+    z-index: 10000;
+    position: fixed;
+    bottom: 8px;
+    right: 10.75vw;
+    background-color: #008bf4;
+    width:135px;
+    height: auto;
+    font-size: 14px;
+    text-align: center;
+
+    -webkit-box-shadow: 0 10px 55px -4px rgba(0, 0, 0, 0.50);
+    -moz-box-shadow: 0 10px 55px -4px rgba(0, 0, 0, 0.50);
+    box-shadow : 0 10px 55px -4px rgba(0, 0, 0, 0.50);
+  }
+
+
 .btn-theme-selected {
     color: white;
     border-width: 1px;
@@ -60,5 +80,4 @@
 
 @media (max-width: 992px) {
   .row-fixed-8, .row-fixed-10 {height:auto;}
-  .btn{height:30px;}
 }
